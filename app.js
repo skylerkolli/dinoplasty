@@ -23,6 +23,8 @@ const app = {
     const listItem = this.renderListItem(dino)
     this.list.appendChild(listItem)
 
+    this.dinos.push(dino)
+
     ++ this.max
     ev.target.dinoName.value= " "
     this.dinos.push(dino)
