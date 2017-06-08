@@ -1,6 +1,7 @@
 const app = {
   init(selectors) {
     this.max = 0
+    this.dinos = []
     this.list = document.querySelector(selectors.listSelector)
     document
       .querySelector(selectors.formSelector)
@@ -19,13 +20,17 @@ const app = {
     this.list.appendChild(listItem)
 
     ++ this.max
+    this.dinos.push(dino)
   },
+
+  
 
   renderListItem(dino) {
     const item = document.createElement('li')
     item.textContent = dino.name
     return item
   }
+  
 }
 
 app.init({
