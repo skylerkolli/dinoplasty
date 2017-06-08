@@ -6,7 +6,11 @@ const app = {
     document
       .querySelector(selectors.formSelector)
       .addEventListener('submit', this.addDino.bind(this))
-  },
+    
+    document
+      .querySelector(selectors.formSelector)
+      .addEventListener("submit", this.addDino.bind(this))
+ },
 
   addDino(ev) {
     ev.preventDefault()
