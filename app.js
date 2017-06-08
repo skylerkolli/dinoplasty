@@ -21,9 +21,9 @@ const app = {
     }
 
     const listItem = this.renderListItem(dino)
-    this.list.appendChild(listItem)
-
-    this.dinos.push(dino)
+    this.list.insertBefore(listItem,this.list.firstChild)
+    
+    this.dinos.unshift(dino)
 
     ++ this.max
     ev.target.dinoName.value= " "
