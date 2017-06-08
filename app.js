@@ -27,10 +27,17 @@ const app = {
     this.list.insertBefore(listItem,this.list.firstChild)
     
     this.dinos.unshift(dino)
+    this.save()
 
     ++ this.max
     ev.target.reset()
   },
+
+  save() { 
+    localStorage
+    .setItem("dinos", JSON.stringify(this.dinos))
+
+  }
 
   
 
@@ -63,6 +70,7 @@ const app = {
          
       }      
     }
+      this.save()
   },
 }
   
