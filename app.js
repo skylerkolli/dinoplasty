@@ -2,7 +2,10 @@ const app = {
   init(selectors) {
     this.max = 0
     this.dinos = []
-    this.list = document.querySelector(selectors.listSelector)
+    this.list = document
+      .querySelector(selectors.listSelector)
+    this.template = document
+      .querySelector(selectors.listSelector)
     document
       .querySelector(selectors.formSelector)
       .addEventListener('submit', this.addDino.bind(this))
@@ -26,8 +29,7 @@ const app = {
     this.dinos.unshift(dino)
 
     ++ this.max
-    ev.target.dinoName.value= " "
-    this.dinos.push(dino)
+    ev.target.reset()
   },
 
   
@@ -35,6 +37,7 @@ const app = {
   renderListItem(dino) {
     const item = document.createElement('li')
     item.textContent = dino.name
+    item.dataset.id = dino.id
     return item
   }
   
@@ -43,4 +46,5 @@ const app = {
 app.init({
   formSelector: '#dino-form',
   listSelector: '#dino-list',
+  templateSelector: ".dino.template",
 })
