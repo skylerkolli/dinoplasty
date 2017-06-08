@@ -1,14 +1,11 @@
 const app = {
-  init(selectors) 
+  init(selectors) {
     this.max = 0
     this.dinos = []
     this.list = document
       .querySelector(selectors.listSelector)
     this.template = document
-      .querySelector(selectors.listSelector)
-    document
-      .querySelector(selectors.formSelector)
-      .addEventListener('submit', this.addDino.bind(this))
+      .querySelector(selectors.templateSelector)
     
     document
       .querySelector(selectors.formSelector)
@@ -26,20 +23,7 @@ const app = {
 
  },
 
-  const app = {
-  init(selectors) {
-    this.dinos = []
-    this.max = 0
-    this.list = document
-      .querySelector(selectors.listSelector)
-    this.template = document
-      .querySelector(selectors.templateSelector)
-    document
-      .querySelector(selectors.formSelector)
-      .addEventListener('submit', this.addDinoFromForm.bind(this))
-
-    this.load()
-  },
+  
 
   load() {
     // load the JSON from localStorage
