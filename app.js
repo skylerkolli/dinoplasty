@@ -20,6 +20,7 @@ const app = {
     this.list.appendChild(listItem)
 
     ++ this.max
+    ev.target.dinoName.value= " "
     this.dinos.push(dino)
   },
 
