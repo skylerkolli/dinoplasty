@@ -1,3 +1,6 @@
+body {
+    background-color: goldenrod;
+}
 .dino.template {
     visibility: hidden;
 }
@@ -28,4 +31,11 @@
 .dino.fav {
     background-color: #ffc656;
     border-color: #ffa807;
+}
+
+.dino:first-child.move-up,
+.dino:last-child.move-down {
+    background-color: #ddd;
+    color: #eee;
+    cursor: not-allowed;
 }

@@ -14,10 +14,10 @@ const app = {
   },
 
   load() {
-    
+   
     const dinoJSON = localStorage.getItem('dinos')
 
-    
+   
     const dinoArray = JSON.parse(dinoJSON)
 
     
@@ -76,8 +76,48 @@ const app = {
     item
       .querySelector('button.fav')
       .addEventListener('click', this.favDino.bind(this, dino))
+    item
+      .querySelector('button.move-up')
+      .addEventListener('click', this.moveUp.bind(this, dino))
+    item
+      .querySelector('button.move-down')
+      .addEventListener('click', this.moveDown.bind(this, dino))
 
     return item
+  },
+
+  moveDown(dino, ev) {
+    const listItem = ev.target.closest('.dino')
+
+    const index = this.dinos.findIndex((currentDino, i) => {
+      return currentDino.id === dino.id
+    })
+
+    if (index < this.dinos.length - 1) {
+      this.list.insertBefore(listItem.nextElementSibling, listItem)
+
+      const nextDino = this.dinos[index + 1]
+      this.dinos[index + 1] = dino
+      this.dinos[index] = nextDino
+      this.save()
+    }
+  },
+
+  moveUp(dino, ev) {
+    const listItem = ev.target.closest('.dino')
+
+    const index = this.dinos.findIndex((currentDino, i) => {
+      return currentDino.id === dino.id
+    })
+
+    if (index > 0) {
+      this.list.insertBefore(listItem, listItem.previousElementSibling)
+
+      const previousDino = this.dinos[index - 1]
+      this.dinos[index - 1] = dino
+      this.dinos[index] = previousDino
+      this.save()
+    }
   },
 
   favDino(dino, ev) {
