@@ -1,36 +1,26 @@
 const app = {
   init(selectors) {
-    this.max = 0
     this.dinos = []
+    this.max = 0
     this.list = document
       .querySelector(selectors.listSelector)
     this.template = document
       .querySelector(selectors.templateSelector)
-    
     document
       .querySelector(selectors.formSelector)
-      .addEventListener("submit", this.addDinoFromForm.bind(this))
+      .addEventListener('submit', this.addDinoFromForm.bind(this))
 
     this.load()
- },
-
- load() {
-  const dinoJSON = localStorage.getItem("dinos")
-  const dinoArray = JSON.parse(dinoJSON)
-  this.dinos = dinoArray
-
- },
-
-  
+  },
 
   load() {
-    // load the JSON from localStorage
+    
     const dinoJSON = localStorage.getItem('dinos')
 
-    // convert the JSON back into an array
+    
     const dinoArray = JSON.parse(dinoJSON)
 
-    // set this.dinos with the dinos from that array
+    
     if (dinoArray) {
       dinoArray
         .reverse()
@@ -54,6 +44,7 @@ const app = {
     const dino = {
       id: this.max + 1,
       name: ev.target.dinoName.value,
+      fav: false,
     }
 
     this.addDino(dino)
@@ -75,11 +66,31 @@ const app = {
       .querySelector('.dino-name')
       .textContent = dino.name
 
+    if (dino.fav) {
+      item.classList.add('fav')
+    }
+
     item
       .querySelector('button.remove')
       .addEventListener('click', this.removeDino.bind(this))
+    item
+      .querySelector('button.fav')
+      .addEventListener('click', this.favDino.bind(this, dino))
 
     return item
+  },
+
+  favDino(dino, ev) {
+    const listItem = ev.target.closest('.dino')
+    dino.fav = !dino.fav
+
+    if (dino.fav) {
+      listItem.classList.add('fav')
+    } else {
+      listItem.classList.remove('fav')
+    }
+
+    this.save()
   },
 
   removeDino(ev) {
