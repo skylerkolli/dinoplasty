@@ -14,5 +14,5 @@
 # Bonus Credit
 *Make it look nice
 *add another field to form and make sure data also persists across page loads
-8edit the names of dinosaurs that are already in the list. make that span's content editable somewhow.
+edit the names of dinosaurs that are already in the list. make that span's content editable somewhow.
 

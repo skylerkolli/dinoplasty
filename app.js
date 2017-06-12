@@ -19,8 +19,6 @@ const app = {
   const dinoArray = JSON.parse(dinoJSON)
   this.dinos = dinoArray
 
-
-
  },
 
   
