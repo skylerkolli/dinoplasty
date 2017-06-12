@@ -16,3 +16,6 @@
 *add another field to form and make sure data also persists across page loads
 edit the names of dinosaurs that are already in the list. make that span's content editable somewhow.
 
+Day 5 homework
+* categorize, separate dino by diet or era. make a whole new thing with categories like messages separated into  channels. 
+*make separate lists based on second input field you added in the weekend homework
